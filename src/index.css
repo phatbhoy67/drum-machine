@@ -12,3 +12,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.drum-machine {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+}
+button {
+  width: 100px;
+  height: 100px;
+  background-color: silver;
+  border-radius: 50%;
+  border-width: 10px;
+  font-size: 36px;
+}
