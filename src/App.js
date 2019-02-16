@@ -1,14 +1,22 @@
-import React, { Component } from 'react';
-import './App.css';
-import drumpadList from './DrumpadList';
+import React, { Component } from "react";
+import "./App.css";
+import drumpadList from "./DrumpadList";
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { displayText: '' };
+    this.state = { displayText: "" };
 
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener("keydown", this.handleKeyPress);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.handleKeyPress);
   }
 
   handleClick(event) {
@@ -23,7 +31,7 @@ class App extends Component {
     // console.log(event.which);
     const keyUpper = event.key.toUpperCase();
     const key = event.which;
-    const audio = document.getElementsByTagName('audio');
+    const audio = document.getElementsByTagName("audio");
     drumpadList.forEach((drumpad, i) => {
       if (drumpad.keycode === key || drumpad.buttonText === keyUpper) {
         this.setState({ displayText: drumpad.audioDescription });
@@ -50,14 +58,10 @@ class App extends Component {
       </button>
     ));
     return (
-      <div
-        id="drum-machine"
-        className="drum-machine"
-        onKeyPress={this.handleKeyPress}
-      >
+      <div id="drum-machine" className="drum-machine">
         <h1>HumDrum</h1>
         <h2 id="display">
-          {!this.state.displayText ? 'DRUMMER' : this.state.displayText}
+          {!this.state.displayText ? "DRUMMER" : this.state.displayText}
         </h2>
         <div>{drumpads}</div>
       </div>
