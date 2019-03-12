@@ -14,10 +14,11 @@ code {
 }
 
 .drum-machine {
-  width: 90%;
+  max-width: 350px;
   margin: auto;
   text-align: center;
 }
+
 button {
   width: 100px;
   height: 100px;

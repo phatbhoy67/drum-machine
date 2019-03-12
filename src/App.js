@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./App.css";
 import drumpadList from "./DrumpadList";
 
 class App extends Component {
@@ -46,7 +45,7 @@ class App extends Component {
         id={drumpad.audioDescription}
         className="drum-pad"
         key={drumpad.audioDescription}
-        src={drumpad.audioTrack}
+        // src={drumpad.audioTrack}
         onClick={this.handleClick}
       >
         {drumpad.buttonText.toUpperCase()}
@@ -59,9 +58,9 @@ class App extends Component {
     ));
     return (
       <div id="drum-machine" className="drum-machine">
-        <h1>HumDrum</h1>
+        <h1>DrumMachine</h1>
         <h2 id="display">
-          {!this.state.displayText ? "DRUMMER" : this.state.displayText}
+          {!this.state.displayText ? "Sound" : this.state.displayText}
         </h2>
         <div>{drumpads}</div>
       </div>
